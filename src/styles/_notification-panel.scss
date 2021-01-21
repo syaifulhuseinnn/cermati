@@ -1,0 +1,27 @@
+#notification-panel {
+	padding: 10px 8px;
+	position: sticky;
+	top: 0;
+	background-color: var(--smoke-grey);
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	max-height: 150px;
+	transition: 0.4s !important;
+    overflow: hidden;
+}
+
+.wrap-notif {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-notif-panel {
+	background: var(--blue);
+	margin-top: 8px;
+	border-radius: 4px;
+
+	&:hover {
+		background-color: var(--dark-blue);
+	}
+}

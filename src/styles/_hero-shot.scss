@@ -1,0 +1,61 @@
+#hero-shot {
+	background-image: url(../images/work-desk__dustin-lee.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	height: 500px;
+}
+
+.overlay {
+	background-color: rgba(0, 74, 117, 0.8);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.logo-wrapper {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 50px;
+	height: 50px;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+.greeting {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 500px;
+	position: relative;
+
+	h1, h4 {
+		text-align: center;
+		color: #ffffff;
+		font-weight: normal;
+		margin: 7px 0;
+		padding: 0 25px;
+	}
+}
+
+.button-contact {
+	border: 2px solid #ffffff;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-style: normal;
+	padding: 12px 17px;
+	border-radius: 3px;
+	margin-top: 15px;
+
+	&:hover {
+		color: var(--dark-blue);
+		background: #ffffff;
+	}
+}
