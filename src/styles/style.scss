@@ -95,9 +95,14 @@ input {
 	}
 
 	.wrap-notif {
+		display: flex;
+		justify-content: center;
+	}
+
+	.wrap-content {
 		flex-direction: row;
 		width: 720px;
-		justify-content: space-evenly;
+		justify-content: center;
 	}
 
 	.info {

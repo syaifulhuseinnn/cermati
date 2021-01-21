@@ -1,19 +1,20 @@
 #notification-panel {
-	padding: 10px 8px;
 	position: sticky;
 	top: 0;
-	background-color: var(--smoke-grey);
-	z-index: 10;
-	display: flex;
-	justify-content: center;
-	max-height: 150px;
-	transition: 0.4s !important;
-    overflow: hidden;
+	z-index: 1;
 }
 
 .wrap-notif {
+	overflow: hidden;
+	transition: 0.5s !important;
+	background-color: var(--smoke-grey);
+	max-height: 200px;
+}
+
+.wrap-content {
 	display: flex;
 	flex-direction: column;
+	padding: 10px;
 }
 
 .button-notif-panel {

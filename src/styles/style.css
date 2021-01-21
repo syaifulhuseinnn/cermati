@@ -62,25 +62,21 @@ input {
 }
 
 #notification-panel {
-  padding: 10px 8px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: var(--smoke-grey);
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-height: 150px;
-  -webkit-transition: 0.4s !important;
-  transition: 0.4s !important;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .wrap-notif {
+  overflow: hidden;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+  background-color: var(--smoke-grey);
+  max-height: 200px;
+}
+
+.wrap-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,6 +84,7 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 10px;
 }
 
 .button-notif-panel {
@@ -318,14 +315,22 @@ footer h5 {
     width: 640px;
   }
   .wrap-notif {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .wrap-content {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     width: 720px;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .info {
     width: 75%;

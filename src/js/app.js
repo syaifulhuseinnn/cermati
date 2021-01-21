@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-	const notificationPanel = document.querySelector("#notification-panel");
+	const notificationPanel = document.querySelector(".wrap-notif");
 	const year = document.querySelector(".year");
 	const slidingPanel = document.querySelector("#sliding-panel");
 	const buttonGotIt = document.querySelector(".button-notif-panel");
@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	year.innerHTML = nowYear.getFullYear();
 	
-	console.log(getTimeLeft)
 	if(getTimeLeft === null) {
 		window.addEventListener("scroll", showNewsletter);
 	}
@@ -30,8 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	function hideNotificationPanel() {
 		notificationPanel.style.maxHeight = "0px";
-		notificationPanel.style.paddingTop = "0px";
-		notificationPanel.style.paddingBottom = "0px";
 	}
 	
 	function showNewsletter() {
@@ -53,7 +50,6 @@ window.addEventListener("DOMContentLoaded", () => {
 	
 		function timeleft() {
 			delayTime = delayTime - 1000;
-			console.log(delayTime);
 			localStorage.setItem("timeleft", delayTime);
 			if(delayTime === 0) {
 				clearInterval(countdown)
@@ -70,12 +66,11 @@ window.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function scrollPosition() {
-		const scrollable = Math.ceil(document.body.scrollHeight / 3);
-		const scrolled = window.scrollY;
+		const scrollable = Math.ceil(document.documentElement.clientHeight / 3);
+		const docElement = document.documentElement.scrollTop;
+		const body = document.body.scrollTop;
 
-		console.log(`ScrollHeight: ${scrollable}, Scrolled: ${scrolled}`)
-
-		if(scrolled > scrollable) {
+		if(docElement > scrollable || body > scrollable) {
 			return true
 		}
 		else {
