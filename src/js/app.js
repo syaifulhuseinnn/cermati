@@ -70,8 +70,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function scrollPosition() {
-		const scrollable = document.documentElement.scrollHeight / 3;
+		const scrollable = Math.ceil(document.body.scrollHeight / 3);
 		const scrolled = window.scrollY;
+
+		console.log(`ScrollHeight: ${scrollable}, Scrolled: ${scrolled}`)
 
 		if(scrolled > scrollable) {
 			return true
