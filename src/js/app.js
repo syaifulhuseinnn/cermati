@@ -8,21 +8,21 @@ window.addEventListener("DOMContentLoaded", () => {
 	buttonGotIt.addEventListener("click", hideNotificationPanel);
 	buttonClose.addEventListener("click", hideNewsletter);
 
-	const getTimeLeft = localStorage.getItem("timeleft");
-	const nowYear = new Date();
 	let isHide = false;
-
+	const getTimeLeft = localStorage.getItem("timeleft");
+	
+	const nowYear = new Date();
 	year.innerHTML = nowYear.getFullYear();
 	
 	if(getTimeLeft === null) {
 		window.addEventListener("scroll", showNewsletter);
 	}
 	else {
+		countdown(parseInt(getTimeLeft));
+
 		setTimeout(() => {
 			const checkScrollPosition = scrollPosition();
-			checkScrollPosition 
-			? showNewsletter() 
-			: window.addEventListener("scroll", showNewsletter);
+			checkScrollPosition ? showNewsletter() : window.addEventListener("scroll", showNewsletter);
 			localStorage.clear();
 		}, parseInt(getTimeLeft));
 	}
@@ -42,19 +42,11 @@ window.addEventListener("DOMContentLoaded", () => {
 	}
 	
 	function hideNewsletter() {
-		let delayTime = 600000;
+		let delayTime = 600_000; //* Convert minutes to miliseconds
 		isHide = true;
-		let countdown = setInterval(timeleft, 1000);
-		
 		slidingPanel.style.bottom = "-500px";
-	
-		function timeleft() {
-			delayTime = delayTime - 1000;
-			localStorage.setItem("timeleft", delayTime);
-			if(delayTime === 0) {
-				clearInterval(countdown)
-			}
-		}
+		
+		countdown(delayTime);
 	
 		setTimeout(function() {
 			const checkScrollPosition = scrollPosition();
@@ -62,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			if(checkScrollPosition) {
 				slidingPanel.style.bottom = "0";
 			}
-		}, 600000);
+		}, 600_000);
 	}
 
 	function scrollPosition() {
@@ -75,6 +67,18 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 		else {
 			return false;
+		}
+	}
+
+	function countdown(delayTime) {
+		let countdown = setInterval(timeleft, 1000);
+
+		function timeleft() {
+			delayTime = delayTime - 1000;
+			localStorage.setItem("timeleft", delayTime);
+			if(delayTime === 0) {
+				clearInterval(countdown);
+			}
 		}
 	}
 });
